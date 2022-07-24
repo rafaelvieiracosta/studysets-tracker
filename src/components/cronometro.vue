@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="cronometro">
     <strong class="display">{{ tempoDecorrido }}</strong>
   </section>
 </template>
@@ -12,8 +12,8 @@ export default defineComponent({
   props: {
     tempoEmSegundos: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   computed: {
     tempoDecorrido(): string {
@@ -24,7 +24,29 @@ export default defineComponent({
 </script>
 
 <style>
-.display{
-  color: var(--textoPrimario);
+.botoesInput strong {
+  display: block;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  padding: 12.5px 20px;
+  margin-right: 25px;
+  min-width: 106px;
+  color: var(--textTimer);
+  background: var(--bgTimer);
+  border-radius: 4px;
+}
+.lista_div strong{
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--textBox);
+}
+@media (max-width: 510px) {
+  .botoesInput #cronometro {
+    width: 100%;
+  }
 }
 </style>

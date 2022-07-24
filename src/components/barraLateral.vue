@@ -1,50 +1,62 @@
 <template>
   <header>
-    <h1>Studysets</h1>
-     <button class="button" @click="alterarTema">{{textoBotao}}</button>
+    <div class="header_div containerGeral">
+      <img src="../assets/logo.svg" alt="studysets" />
+      <button class="button" @click="alterarTema" v-html="textoBotao"></button>
+    </div>
   </header>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: 'BarraLateral',
-  emits: ['aoTemaAlterado'],
-  data(){
-    return{
-      modoEscuroAtivo: false
-    }
+  name: "BarraLateral",
+  emits: ["aoTemaAlterado"],
+  data() {
+    return {
+      modoEscuroAtivo: false,
+    };
   },
   computed: {
-    textoBotao(){
-      if(this.modoEscuroAtivo){
-        return 'Desativar modo escuro'
+    textoBotao() {
+      if (this.modoEscuroAtivo) {
+        return "&#10022";
       }
-      return 'Ativar modo escuro'
-    }
+      return "&#10023";
+    },
   },
   methods: {
-    alterarTema(){
-      this.modoEscuroAtivo = !this.modoEscuroAtivo
-      this.$emit('aoTemaAlterado', this.modoEscuroAtivo)
-    }
-  }
-})
+    alterarTema() {
+      this.modoEscuroAtivo = !this.modoEscuroAtivo;
+      this.$emit("aoTemaAlterado", this.modoEscuroAtivo);
+    },
+  },
+});
 </script>
 
-<style scoped>
+<style>
 header {
-  padding: 1rem;
-  background: #0d3b66;
-  width: 100%;
-  height: 100vh;
-  text-align: center;
+  background: var(--bgHeader);
+  padding: 0 20px;
 }
-@media only screen and (max-width: 768px) {
-  header {
-    padding: 2.5rem;
-    height: auto;
+.header_div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 0 20px;
+}
+.header_div > button{
+  border: none;
+  background: none;
+  color: var(--colorBoxNull);
+  cursor: pointer;
+  font-size: 32px;
+  line-height: 34px;
+}
+@media (max-width: 600px) {
+  .header_div {
+    padding: 30px 0;
   }
 }
 </style>

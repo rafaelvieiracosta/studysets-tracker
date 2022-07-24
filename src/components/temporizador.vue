@@ -1,16 +1,16 @@
 <template>
-  <div class="is-flex is-align-items-center is-justify-content-space-between">
+  <div class="botoesInput">
     <Cronometro :tempoEmSegundos="tempoEmSegundos" />
     <botaoPrincipal
       @click="iniciar"
       :disabled="cronometroRodando"
-      iconeBotao="fas fa-play"
+      iconeBotao="<svg width='14' height='18' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='m1 1 11.974 7.697L1 16.395V1Z' stroke='#00234C' stroke-width='1.711' stroke-linecap='round' stroke-linejoin='round'/></svg>"
       textoBotao="play"
     />
     <botaoPrincipal
       @click="finalizar"
       :disabled="!cronometroRodando"
-      iconeBotao="fas fa-stop"
+      iconeBotao="<svg width='18' height='18' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M14.684 1H2.711A1.71 1.71 0 0 0 1 2.71v11.974c0 .945.766 1.71 1.71 1.71h11.974a1.71 1.71 0 0 0 1.71-1.71V2.711A1.71 1.71 0 0 0 14.685 1Z' stroke='#00234C' stroke-width='1.711' stroke-linecap='round' stroke-linejoin='round'/></svg>"
       textoBotao="stop"
     />
   </div>
@@ -52,4 +52,13 @@ export default defineComponent({
 });
 </script>
 
-<style></style>
+<style>
+.botoesInput {
+  display: flex;
+}
+@media (max-width: 510px) {
+  .botoesInput {
+    width: 100%;
+  }
+}
+</style>
